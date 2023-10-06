@@ -1,8 +1,7 @@
 {
-  "name": "server",
+  "name": "finale",
   "version": "1.0.0",
   "description": "",
-<<<<<<< HEAD
   "main": "server/server.js",
   "scripts": {
     "start": "node server --ignore client",
@@ -10,25 +9,11 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
-=======
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "watch": "nodemon"
->>>>>>> fc8cac580dc445ef26a6a3662b53a5eb9698d895
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@apollo/server": "^4.9.4",
-    "bcrypt": "^5.1.1",
-    "express": "^4.18.2",
-    "graphql": "^16.8.1",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^7.5.4"
-  },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "concurrently": "^8.2.1"
   }
 }
