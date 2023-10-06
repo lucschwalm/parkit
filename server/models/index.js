@@ -1,3 +1,4 @@
 const User = require('./User');
+const wishList = require('./wishList');
 
-module.exports = { User };
+module.exports = { User, wishList };
