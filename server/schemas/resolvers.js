@@ -2,6 +2,7 @@ const { User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
+    Mutation: {
     // Adds user upon signup
     addUser: async (parent, { username, email, password }) => {
         const user = await User.create({ username, email, password });
@@ -27,4 +28,7 @@ const resolvers = {
   
         return { token, user };
       },
+    }
 }
+
+module.exports = resolvers;
