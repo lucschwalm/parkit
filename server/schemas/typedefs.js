@@ -1,4 +1,13 @@
 const typeDefs = `
+    type User {
+        _id: ID
+        userName: String
+        email: String
+        password: String
+        wishLists: [wishList]
+        parks: [Park]
+    }
+
     type Auth {
         token: ID!
         user: User
