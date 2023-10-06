@@ -1,5 +1,7 @@
-const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt')
+const { Schema } = require('mongoose');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const wishList = require('./wishList');
 
 const userSchema = new Schema({
   userName: {
@@ -12,21 +14,14 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, 'Must match an email address!'],
   },
   password: {
     type: String,
     required: true,
     minlength: 6,
   },
-  wishList: {
-    type: Schema.Types.ObjectId,
-    ref: 'wishList'
-  },
-  parksVisited: {
-    type: Schema.Types.ObjectId,
-    ref: 'parksVisited'
-  },
+  wishLists: [wishList.schema],
+  parks: [Parks.schema]
 });
 
 userSchema.pre('save', async function (next) {
@@ -38,6 +33,10 @@ userSchema.pre('save', async function (next) {
     next();
   });
 
-const User = model('User', userSchema);
+  userSchema.methods.isCorrectPassword = async function(password) {
+    return await bcrypt.compare(password, this.password);
+  };
+
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
