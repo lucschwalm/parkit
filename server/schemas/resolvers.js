@@ -1,35 +1,31 @@
-const { User, wishList } = require('../models');
+const { User, wishList, Park } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
     Query: {
       user: async (parent, args, context) => {
         if (context.user) {
-          const user = await User.findById(context.user._id).populate({
-            path: 'users.wishLists',
-            populate: 'wishList',
-          });
-
+          const user = await User.findById(context.user._id).populate('wishLists');
           user.wishLists.sort((a, b) => b.createdAt - a.createdAt);
-
           return user;
-
         }
-
-        throw AuthenticationError;
+        throw new AuthenticationError();
       },
 
       wishList: async (parent, {_id }, context) => {
         if (context.user) {
-          const user = await User.findById(context.user._id).populate({
-            path: 'users.wishLists',
-            populate: 'wishList',
-        });
+          const user = await User.findById(context.user._id).populate(
+            'wishLists'
+        );
 
         return user.wishLists.id(_id);
         }
 
         throw AuthenticationError;
+      },
+
+      parks: async () => {
+        return await Park.find();
       },
     },
     Mutation: {
