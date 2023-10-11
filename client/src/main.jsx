@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import App from './App.jsx'
 import './index.css'
-import ParkSearch from './pages/ParkSeach.jsx'
+import ParkSearch from './components/MapComponent.jsx'
 
 const router = createBrowserRouter([
   {
