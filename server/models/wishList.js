@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const moment = require('moment');
+// const moment = require('moment');
 
 
 const wishListSchema = new Schema(
@@ -14,6 +14,6 @@ const wishListSchema = new Schema(
     }
 );
 
-const wishList = mongoose.model('wishList', wishListSchema);
+const WishList = mongoose.model('wishList', wishListSchema);
 
-module.exports = wishList;
+module.exports = WishList;
