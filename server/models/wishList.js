@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const Park = require('./Park');
 // const moment = require('moment');
 
 
 const wishListSchema = new Schema(
     {
-        parks: [Park],
+        parks: [Park.schema],
         createdAt: {
            type: Date,
            default: Date.now,
