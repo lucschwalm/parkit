@@ -2,20 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-<<<<<<< HEAD
-  "main": "server/server.js",
-  "scripts": {
-    "start": "node server --ignore client",
-    "develop": "concurrently \"cd server && npm run start\" \"cd client && npm run dev\"",
-    "install": "cd server && npm i && cd ../client && npm i",
-    "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
-=======
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon"
->>>>>>> fc8cac580dc445ef26a6a3662b53a5eb9698d895
   },
   "keywords": [],
   "author": "",

@@ -1,4 +1,4 @@
-const { User, wishList, Park } = require('../models');
+const { User, WishList, Park } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -57,7 +57,8 @@ const resolvers = {
 
       addWishList: async (parent, { parks }, context) => {
         if (context.user) {
-          const wishList = new wishList({ parks });
+          // const wishList = new WishList({ parks });
+          const wishList = await WishList.create({ parks });
 
           await User.findByIdAndUpdate(context.user._id, {
             $push: { wishLists: wishList },

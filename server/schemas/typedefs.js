@@ -4,11 +4,11 @@ const typeDefs = `
         userName: String
         email: String
         password: String
-        wishLists: [wishList]
+        wishLists: [WishList]
         parks: [Park]
     }
 
-    type wishList {
+    type WishList {
         _id: ID
         parks: [Park]
         createdAt: String
@@ -26,7 +26,7 @@ const typeDefs = `
 
     type Query {
         user: User,
-        wishList(userId: ID!): wishList
+        wishList(userId: ID!): WishList
         parks: [Park]
     }
 
