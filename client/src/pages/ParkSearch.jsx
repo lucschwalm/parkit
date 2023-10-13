@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_PARKS } from '../utils/queries'; 
 
-function ParkList() {
+const ParkSearch = () => {
   const { loading, data } = useQuery(QUERY_PARKS);
 
   if (loading) {
@@ -25,4 +25,4 @@ function ParkList() {
   );
 }
 
-export default ParkList;
+export default ParkSearch;

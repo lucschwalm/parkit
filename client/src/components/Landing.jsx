@@ -1,12 +1,12 @@
-const ParkSearch = () => {
+const Landing = () => {
     return(
         <div>
-  
+            <img src="background.jpg" width="100%"/>
         </div>
     )
   }
   
-  export default ParkSearch;
+export default Landing;
   
   // import React from 'react';
   // import { Link } from 'react-router-dom';

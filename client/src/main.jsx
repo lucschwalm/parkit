@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import App from './App.jsx'
 import './index.css'
-import ParkSearch from './components/MapComponent.jsx'
+import ParkSearch from './pages/ParkSearch.jsx'
+import Landing from './components/Landing.jsx'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <Landing />
+      },
+      {
+        path: '/search',
         element: <ParkSearch />
       }
     ]
