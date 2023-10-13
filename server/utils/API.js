@@ -24,6 +24,6 @@ export const savePark = (ParkData, token) => {
   // https://www.googleapis.com/books/v1/volumes?q=harry+potter
   export const searchParks = (query) => {
     // return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
-    return fetch(`https://developer.nps.gov/api/v1/parks?q=${query}`)
+    return fetch(`https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=${API_KEY}`)
   };
   
