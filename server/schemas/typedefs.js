@@ -1,4 +1,6 @@
-const typeDefs = `
+const { gql } = require("apollo-server-express")
+
+const typeDefs = gql`
     type User {
         _id: ID
         userName: String
@@ -17,6 +19,10 @@ const typeDefs = `
     type Park {
         _id: ID
         name: String!
+        address: String
+        description: String
+        latitude: Float
+        longtitude: Float
     }
 
     type Auth {
