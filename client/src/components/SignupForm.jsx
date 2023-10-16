@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 
-import { ADD_USER } from '../utils/mutations.js';
+import { ADD_USER } from '../utils/mutations';
 
-import Auth from '../utils/auth.js';
+import Auth from '../utils/auth';
 
 const SignupForm = () => {
   // set initial form state
@@ -28,14 +28,16 @@ const SignupForm = () => {
     }
 
     try {
-      const data = await addUser({
+      const userResponse = await addUser({
 
         variables: {
           ...userFormData
         }
       });
 
-      Auth.login(data.addUser.token);
+      const token = userResponse.data.addUser.token
+
+      Auth.login(token);
     } catch (err) {
       console.error(err);
     }
@@ -55,7 +57,7 @@ const SignupForm = () => {
             {data ? (
               <p>
                 Success! You may now head{' '}
-                <Link to="/index">back to the homepage.</Link>
+                <Link to="/landing">back to the homepage.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
