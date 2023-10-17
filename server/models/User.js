@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const WishList = require('./wishList');
-const Park = require('./Park');
+// const WishList = require('./wishList');
+// const parkSchema = require('./Park');
 
 const userSchema = new Schema({
   userName: {
@@ -21,8 +21,18 @@ const userSchema = new Schema({
     required: true,
     minlength: 6,
   },
-  wishLists: [WishList.schema],
-  parks: [Park.schema]
+  parks: [
+    {
+      name: {
+        type: String,
+        required: true,
+        trim: true
+      },
+      address: {
+        type: String,
+      }
+    },
+  ],
 });
 
 userSchema.pre('save', async function (next) {
