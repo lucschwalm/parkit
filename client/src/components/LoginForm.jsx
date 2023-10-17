@@ -50,7 +50,7 @@ const LoginForm = () => {
             {data ? (
               <p>
                 Success! You may now head{' '}
-                <Link to="/landing">back to the homepage.</Link>
+                <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
               <form className="pt-4 pb-4" onSubmit={handleFormSubmit}>
