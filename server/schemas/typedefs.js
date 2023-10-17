@@ -4,19 +4,24 @@ const typeDefs = `
         userName: String
         email: String
         password: String
-        wishLists: [WishList]
         parks: [Park]
-    }
-
-    type WishList {
-        _id: ID
-        parks: [Park]
-        createdAt: String
     }
 
     type Park {
         _id: ID
         name: String!
+        address: String
+    }
+
+    input parkInput {
+        _id: ID
+        name: String!
+        address: String
+    }
+
+    type WishList {
+        _id: ID
+        createdAt: String
     }
 
     type Auth {
@@ -25,15 +30,14 @@ const typeDefs = `
     }
 
     type Query {
-        user: User,
-        wishList(userId: ID!): WishList
-        parks: [Park]
+        me: User,
     }
 
     type Mutation {
         addUser(userName: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
-        addWishList(parks: [ID]!): WishList
+        addFavorite(input: parkInput): User
+        addFavoritePark(userId: ID!, name: String!, address: String): User
       }
 `
 

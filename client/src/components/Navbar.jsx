@@ -23,6 +23,9 @@ const AppNavbar = () => {
               <Nav.Link as={Link} to='/search'>
                 Search for Parks
               </Nav.Link>
+              <Nav.Link as={Link} to='/profile'>
+                My Profile
+              </Nav.Link>
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>

@@ -6,6 +6,7 @@ import App from './App.jsx'
 import './index.css'
 import ParkSearch from './pages/ParkSearch.jsx'
 import Landing from './components/Landing.jsx'
+import Profile from './pages/Profile.jsx'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: '/search',
         element: <ParkSearch />
+      },
+      {
+        path: '/profile',
+        element: <Profile />
       }
     ]
   }

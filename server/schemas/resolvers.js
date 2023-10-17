@@ -1,32 +1,40 @@
-const { User, WishList, Park } = require('../models');
+const { User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-      user: async (parent, args, context) => {
+      // user: async (parent, args, context) => {
+
+      //   if (context.user) {
+      //     const userData = await User.findOne({_id: context.user._id})
+      //     .select('-__v -password')
+      //     return userData;
+      //   }
+      //   throw AuthenticationError;
+      // },
+      me: async (parent, args, context) => {
         if (context.user) {
-          const user = await User.findById(context.user._id).populate('wishLists');
-          user.wishLists.sort((a, b) => b.createdAt - a.createdAt);
-          return user;
+          return User.findOne({ _id: context.user._id })
+            .select('-__v -password');
         }
-        throw new AuthenticationError();
-      },
-
-      wishList: async (parent, {_id }, context) => {
-        if (context.user) {
-          const user = await User.findById(context.user._id).populate(
-            'wishLists'
-        );
-
-        return user.wishLists.id(_id);
-        }
-
         throw AuthenticationError;
       },
 
-      parks: async () => {
-        return await Park.find();
-      },
+      // wishList: async (parent, {_id }, context) => {
+      //   if (context.user) {
+      //     const user = await User.findById(context.user._id).populate(
+      //       'wishLists'
+      //   );
+
+      //   return user.wishLists.id(_id);
+      //   }
+
+      //   throw AuthenticationError;
+      // },
+
+      // parks: async () => {
+      //   return await Park.find();
+      // },
     },
     Mutation: {
     // Adds user upon signup
@@ -55,20 +63,48 @@ const resolvers = {
         return { token, user };
       },
 
-      addWishList: async (parent, { parks }, context) => {
+      // addWishList: async (parent, { parks }, context) => {
+      //   if (context.user) {
+      //     // const wishList = new WishList({ parks });
+      //     const wishList = await WishList.create({ parks });
+
+      //     await User.findByIdAndUpdate(context.user._id, {
+      //       $push: { wishLists: wishList },
+      //     });
+
+      //     return wishList;
+      //   }
+
+      //   throw AuthenticationError;
+      // },
+
+      addFavoritePark: async (parent, { name, address }, context) => {
         if (context.user) {
-          // const wishList = new WishList({ parks });
-          const wishList = await WishList.create({ parks });
+          try {
+            const savePark = await User.findOneAndUpdate(
+              {_id: context.user._id}, 
+              // {$push: { myParks: input }},
+              {
+                $addToSet: { parks: { name, address } },
+              },
+              { new: true}
+            )
 
-          await User.findByIdAndUpdate(context.user._id, {
-            $push: { wishLists: wishList },
-          });
+            return savePark;
+          } catch (error) {
+            // throw new Error('Failed to add the park to favorites.');
+            console.log(error);
+          }
+            // const user = await User.findById(context.user._id);
 
-          return wishList;
-        }
-
-        throw AuthenticationError;
-      },
+            // Check if the parkId is already in the user's myParks array
+            // if (!user.myParks.includes(input)) {
+            //   // Add the parkId to the user's myParks array
+            //   user.myParks.push(parkId);
+            //   await user.save();
+            //   return user;
+          } 
+          throw new AuthenticationError;}
     }
 }
 
