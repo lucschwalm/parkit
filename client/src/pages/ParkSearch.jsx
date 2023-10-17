@@ -1,7 +1,17 @@
+import { searchParks } from "../utils/API";
+
+const handleSubmit = async () => {
+  const parks = await searchParks("Big Bend", import.meta.env.VITE_PARK_API_KEY);
+  for(let i=0; i<parks.total; i++) {
+    let name = parks.data[i].fullName;
+    console.log(name);
+  }
+}
+
 const ParkSearch = () => {
   return(
       <div>
-
+        <button onClick={handleSubmit}>Big Bend</button>
       </div>
   )
 }
