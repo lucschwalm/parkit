@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, Container, Row, Col } from 'react-bootstrap';
 
 import { useQuery } from '@apollo/client';
