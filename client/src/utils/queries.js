@@ -7,7 +7,7 @@ export const GET_USER = gql`
       userName
       parks {
         name
-        address
+        description
       }
     }
   }

@@ -28,7 +28,7 @@ const userSchema = new Schema({
         required: true,
         trim: true
       },
-      address: {
+      description: {
         type: String,
       }
     },

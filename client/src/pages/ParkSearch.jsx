@@ -47,9 +47,9 @@ const ParkSearch = () => {
       setFillIcon(true);
 
       try{
-        const username = user.me.userName;
-        console.log(username);
-        const { data } = await addFavoritePark({ variables: { username, name, description } });
+        // const username = user.me.userName;
+        // console.log(username);
+        const { data } = await addFavoritePark({ variables: { name, description } });
         return data;
       } catch (err) {
         console.error(err);
