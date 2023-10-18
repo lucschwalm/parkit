@@ -25,8 +25,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_FAVORITE_PARK = gql`
-  mutation addFavoritePark($name: String!, $address: String) {
-    addFavoritePark(name: $name, address: $address) {
+  mutation addFavoritePark($userName: String!, $name: String!, $address: String) {
+    addFavoritePark(userName: $userName, name: $name, address: $address) {
       _id
       userName
       parks {

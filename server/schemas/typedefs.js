@@ -37,7 +37,7 @@ const typeDefs = `
         addUser(userName: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
         addFavorite(input: parkInput): User
-        addFavoritePark(userId: ID!, name: String!, address: String): User
+        addFavoritePark(userName: String!, name: String!, address: String): User
       }
 `
 
