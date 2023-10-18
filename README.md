@@ -2,6 +2,8 @@
 ##Google Maps Static API/The Maps Static API lets you embed a Google Maps image on your web page without requiring JavaScript or any dynamic page loading. The Maps Static API service creates your map based on URL parameters sent through a standard HTTP request and returns the map as an image you can display on your web page. 
 # National Park Finder Service
 
+![Alt text](<Screenshot 2023-10-17 212459-1.png>)
+
 ## Project Overview
 
 The National Park Finder Service is a web-based application that helps users discover and locate national parks based on their input. This README provides essential information for developers, collaborators, and users to understand and work with this API.
