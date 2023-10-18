@@ -1,14 +1,12 @@
-const { Schema } = require('mongoose');
 const mongoose = require('mongoose');
-const moment = require('moment');
+const { Schema } = mongoose;
+// const parkSchema = require('./Park');
+// const moment = require('moment');
 
 
 const wishListSchema = new Schema(
     {
-        park: {
-            type: String,
-            required: true,
-        },
+        // parks: [parkSchema],
         createdAt: {
            type: Date,
            default: Date.now,
@@ -17,6 +15,6 @@ const wishListSchema = new Schema(
     }
 );
 
-const wishList = mongoose.model('wishList', wishListSchema);
+const WishList = mongoose.model('wishList', wishListSchema);
 
-module.exports = wishList;
+module.exports = WishList;

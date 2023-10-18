@@ -14,8 +14,17 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
+    "@googlemaps/js-api-loader": "^1.16.2",
+    "@googlemaps/react-wrapper": "^1.1.35",
     "@mui/material": "^5.14.12",
+<<<<<<< HEAD
     "bootstrap": "^5.2.3",
+=======
+    "@react-google-maps/api": "^2.19.2",
+    "bootstrap": "^5.2.3",
+    "dotenv": "^16.3.1",
+    "google-maps-reacts": "^2.1.0",
+>>>>>>> 3572b1aec3e2bac5be811e26c431bf09e2502e1c
     "graphql": "^16.6.0",
     "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
@@ -31,6 +40,11 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+<<<<<<< HEAD
     "vite": "^4.4.11"
+=======
+    "react-error-overlay": "6.0.9",
+    "vite": "^4.4.5"
+>>>>>>> 3572b1aec3e2bac5be811e26c431bf09e2502e1c
   }
 }

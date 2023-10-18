@@ -52,7 +52,10 @@ export const getMe = (token) => {
   
   // make a search to google books api
   // https://www.googleapis.com/books/v1/volumes?q=harry+potter
-  export const searchGoogleBooks = (query) => {
-    return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+  export const searchParks = async (query, key) => {
+    const response = await fetch(`https://developer.nps.gov/api/v1/parks?q=${query}&api_key=${key}`);
+    const parkData = await response.json();
+    console.log(parkData);
+    return parkData;
   };
   
