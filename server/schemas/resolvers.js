@@ -17,7 +17,7 @@ const resolvers = {
           return User.findOne({ _id: context.user._id })
             .select('-__v -password');
         }
-        throw AuthenticationError;
+        // throw AuthenticationError;
       },
 
       // wishList: async (parent, {_id }, context) => {
