@@ -10,7 +10,7 @@ const typeDefs = `
     type Park {
         _id: ID
         name: String!
-        address: String
+        description: String
     }
 
     input parkInput {
@@ -37,7 +37,7 @@ const typeDefs = `
         addUser(userName: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
         addFavorite(input: parkInput): User
-        addFavoritePark(userId: ID!, name: String!, address: String): User
+        addFavoritePark(name: String!, description: String): User
       }
 `
 

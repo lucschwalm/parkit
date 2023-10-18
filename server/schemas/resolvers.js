@@ -78,14 +78,14 @@ const resolvers = {
       //   throw AuthenticationError;
       // },
 
-      addFavoritePark: async (parent, { name, address }, context) => {
+      addFavoritePark: async (parent, { name, description }, context) => {
         if (context.user) {
           try {
             const savePark = await User.findOneAndUpdate(
               {_id: context.user._id}, 
               // {$push: { myParks: input }},
               {
-                $addToSet: { parks: { name, address } },
+                $addToSet: { parks: { name, description } },
               },
               { new: true}
             )
