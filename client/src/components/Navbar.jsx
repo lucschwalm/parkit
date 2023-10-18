@@ -4,8 +4,6 @@ import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 
-import '../assets/Navbar.css';
-
 import Auth from '../utils/auth';
 
 const AppNavbar = () => {
@@ -14,7 +12,7 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar className="navbar-container" bg='dark' variant='dark' expand='lg'>
+      <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
             National Park Search
