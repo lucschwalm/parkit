@@ -20,19 +20,18 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
             <Nav className='ml-auto d-flex'>
-              <Nav.Link as={Link} to='/search'>
+              <Nav.Link style={{ color: 'lightgray' }} as={Link} to='/search'>
                 Search for Parks
               </Nav.Link>
-              <Nav.Link as={Link} to='/profile'>
+              <Nav.Link style={{ color: 'lightgray' }} as={Link} to='/profile'>
                 My Profile
               </Nav.Link>
-              {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link style={{ color: 'white' }} onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                <Nav.Link style={{ color: 'white' }} onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
